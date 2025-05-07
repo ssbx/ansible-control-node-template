@@ -1,0 +1,4 @@
+ansible-vault.password
+_build
+.ansible
+.venv

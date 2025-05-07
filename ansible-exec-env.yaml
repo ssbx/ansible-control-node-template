@@ -1,0 +1,35 @@
+version: 3
+
+images:
+  base_image:
+    name: registry.fedoraproject.org/fedora:38
+
+dependencies:
+  system:
+    - openssh-clients
+    - sshpass
+  ansible_core:
+    package_pip: ansible-core==2.18.5
+  ansible_runner:
+    package_pip: ansible-runner
+  galaxy:
+    collections:
+      - name: ansible.posix
+        version: "1.6.2"
+      - name: ansible.utils
+        version: "5.1.2"
+      - name: community.general
+        version: "5.1.0"
+      - name: community.network
+        version: "5.1.0"
+      - name: cisco.ios
+        version: "9.2.0"
+      - name: dellemc.os6
+        version: "1.0.7"
+
+additional_build_steps:
+  append_final:
+    - RUN ls /
+    - RUN whoami
+    - RUN cat /etc/os-release
+

@@ -1,0 +1,10 @@
+---
+- name: Verification de la presence des hotes
+  hosts: all
+  tasks:
+    - name: Ping les hotes
+      ansible.builtin.ping:
+
+    - name: Affiche message
+      ansible.builtin.debug:
+        msg: Hello

@@ -1,0 +1,13 @@
+
+TOP_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &> /dev/null && pwd)
+
+source "${TOP_DIR}/.venv/bin/activate"
+export ANSIBLE_CONFIG="${TOP_DIR}/ansible.cfg"
+export ANSIBLE_NAVIGATOR_CONFIG="${TOP_DIR}/ansible-navigator.yaml"
+
+deactivate2 () {
+  deactivate
+  unset ANSIBLE_CONFIG
+  unset ANSIBLE_NAVIGATOR_CONFIG
+}
+
