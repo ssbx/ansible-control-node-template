@@ -37,7 +37,7 @@ Faire les modifs désirées sur le fichier *ansible-exec-env.yaml* (voir la
 Lancer le build:
 
 ```sh
-$ make exec-env_build
+$ make eenv_build
 ```
 
 Verifier la présence de l'image dans la liste d'images docker et 
@@ -51,7 +51,7 @@ $ ansible-navigator images --mode interactive
 Faire le ménage:
 
 ```sh
-$ make exec-env_clean
+$ make eenv_clean
 $ docker system prune
 ```
 
@@ -94,7 +94,7 @@ Configuration pour test minimal
 Editer *inventory/hosts.yaml* pour pointer vers un élément réseau. L'exemple
 utilise un élément réseau cisco.
 
-Ajouter le fichier encodé *inventory/group_vars/all.yaml* pour renseigner les
+Editer le fichier encodé *inventory/group_vars/all.yaml* pour renseigner les
 identifiants de connexion avec la commande:
 
 ```sh
@@ -111,12 +111,6 @@ cisco_password_1: password
 Lancer le playbook de test
 ==========================
 
-A propos d' *ansible-navigator run*:
-- la plupars de sa conf est lue des fichiers "activate", "ansible-navigator.yaml", 
-"ansible.cfg"
-- monte automatiquement ~/.ssh sur le conteneur
-- accepte toutes les options d' *ansible-playbook*
-
 Lancement avec contexte d'execution par defaut:
 
 ```sh
@@ -128,4 +122,10 @@ Avec contexte d'execution specifique:
 ```sh
 $ ansible-navigator run playbooks/ping.yaml --eei reseau_ee:1.2
 ```
+
+A propos d' *ansible-navigator run*:
+- la plupars de sa conf est lue des fichiers "activate", "ansible-navigator.yaml", 
+"ansible.cfg"
+- monte automatiquement ~/.ssh sur le conteneur
+- accepte toutes les options d' *ansible-playbook*
 
